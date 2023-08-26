@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArticleVenteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategorieController;
@@ -28,4 +29,5 @@ Route::post('categories/restore', [CategorieController::class, "restore"]);
 
 Route::apiResource('addArticle', ArticleController::class);
 Route::post("/addArticle", [ArticleController::class, "store"]);
-Route::get('ids/{tissu}',[CategorieController::class,'getidCatBylib']);
+Route::get('ids/{tissu}', [CategorieController::class, 'getidCatBylib']);
+Route::apiResource('articleVente', ArticleVenteController::class);

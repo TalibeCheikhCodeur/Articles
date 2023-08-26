@@ -34,7 +34,7 @@ class ArticleController extends Controller
         $categorie = new Categorie();
         $fournisseur = new Fournisseur();
         $articles = ArticleResource::collection($article->all());
-        $categories = CategorieResource::collection($categorie->all());
+        $categories = CategorieResource::collection($categorie->where("typeCategorie", "confection"));
         $fournisseurs = FournisseurResource::collection($fournisseur->all());
         $tabData = ["articles" => $articles, "fournisseurs" => $fournisseurs, "categories" => $categories];
         return $this->response(Response::HTTP_ACCEPTED, "Tous les donnees", $tabData);
